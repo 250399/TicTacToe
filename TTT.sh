@@ -15,5 +15,13 @@ firstPlay () {
 	fi
 }
 
+printBoard () {
+	for i in {0..8}
+	do
+		[ $i -eq 2 -o $i -eq 5 ] && echo ${arr[$i]} || echo -n ${arr[$i]}
+	done
+}
+
 reset
 firstPlay
+printBoard
