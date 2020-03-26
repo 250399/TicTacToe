@@ -39,10 +39,6 @@ checkWinner () {
 	if [ "${arr[$index1]}" != "-" ]
 	then
 		[ "${arr[$index1]}" = "${arr[$index2]}" -a "${arr[$index2]}" = "${arr[$index3]}" ] && winner=${arr[$1]} || return 0
-		if [ $remMoves -eq 0 ]
-		then
-		winner=Tie
-		fi
 	fi
 }
 
@@ -77,8 +73,7 @@ play () {
 			remMoves=$((remMoves-1))
 		else
 			play
-			
-		fi 
+		fi
 		flag=player
 	fi
 	printBoard
@@ -92,6 +87,11 @@ winner=no
 
 while true
 do
+	if [ $remMoves -eq 0 ]
+	then
+		echo "Tie"
+		break
+	fi
 	if [ $remMoves -lt 5 ]
 	then
 		checkWinner 0 1 2
