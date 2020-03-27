@@ -16,7 +16,6 @@ firstPlay () {
 			flag=player 
 		else 
 			comp=X
-			echo $comp	
 			flag=comp
 		fi
 	else
@@ -50,21 +49,22 @@ checkTwo () {
 	index1=$1
 	index2=$2
 	index3=$3
-	if [ "${arr[$index1]}" = "${arr[$index2]}" -a "${arr[$index1]}" != "-" -a "${arr[$index3]}" = "-" ] 
+	checkCompWin=$4
+	if [ "${arr[$index1]}" = "${arr[$index2]}" -a "${arr[$index1]}" != "-" -a "${arr[$index3]}" = "-" -a "${arr[$index1]}" = "$checkCompWin" ] 
 	then
 		arr[$index3]=$comp
 	 	flag=player
 		remMoves=$((remMoves-1))
 		printBoard
 	fi
-	if [ "${arr[$index1]}" = "${arr[$index3]}" -a "${arr[$index1]}" != "-" -a "${arr[$index2]}" = "-" ]
+	if [ "${arr[$index1]}" = "${arr[$index3]}" -a "${arr[$index1]}" != "-" -a "${arr[$index2]}" = "-"  -a "${arr[$index1]}" = "$checkCompWin" ]
 	then
 	 	arr[$index2]=$comp
 		remMoves=$((remMoves-1))
 	 	flag=player
 		printBoard
 	fi
-	if [ "${arr[$index3]}" = "${arr[$index2]}" -a "${arr[$index3]}" != "-" -a "${arr[$index1]}" = "-" ]
+	if [ "${arr[$index3]}" = "${arr[$index2]}" -a "${arr[$index3]}" != "-" -a "${arr[$index1]}" = "-"  -a "${arr[$index2]}" = "$checkCompWin" ]
 	then
 		arr[$index1]=$comp
 		flag=player
@@ -97,16 +97,42 @@ randomPlay () {
 
 }
 
+checkCorner () {
+	index=0
+	[ "$flag" = "player" ] && return || :
+	[ "${arr[0]}" = "-" ] && corner[$((index++))]=0 || :
+	[ "${arr[2]}" = "-" ] && corner[$((index++))]=2 || :
+	[ "${arr[6]}" = "-" ] && corner[$((index++))]=6 || :
+	[ "${arr[8]}" = "-" ] && corner[$((index++))]=8 || :
+	length=${#corner[@]}
+	if [ $length -eq 0 ]
+	then
+		return
+	elif [ $length -eq 1 ]
+	then
+		arr[${corner[@]}]=$comp
+		remMoves=$((remMoves-1))
+		printBoard
+		flag=player
+	else
+		echo  "ASDSADASDSA"
+		arr[${corner[$((RANDOM%length))]}]=$comp
+		remMoves=$((remMoves-1))
+		flag=player
+		printBoard
+	fi
+}
+
 winCheck () {
-	checkTwo 0 1 2
-	checkTwo 3 4 5
-	checkTwo 6 7 8
-		checkTwo 0 4 8
-		checkTwo 2 4 6
-		checkTwo 0 3 6
-		checkTwo 1 4 7
-		checkTwo 2 5 8
-		[ "$flag" = "comp" ] && randomPlay || :
+	checkFlag=$1
+	checkTwo 0 1 2 $checkFlag
+	checkTwo 3 4 5 $checkFlag
+	checkTwo 6 7 8 $checkFlag
+	checkTwo 0 4 8 $checkFlag
+	checkTwo 2 4 6 $checkFlag
+	checkTwo 0 3 6 $checkFlag
+	checkTwo 1 4 7 $checkFlag
+	checkTwo 2 5 8 $checkFlag
 }
 
 play () {
@@ -126,7 +152,10 @@ play () {
 		flag=comp
 	elif [ $difficulty -eq 2 -a "$flag" = "comp" ]
 	then
-		winCheck
+		winCheck $comp
+		winCheck $player
+		[ "$flag" = "comp" ] && checkCorner || :
+		[ "$flag" = "comp" ] && randomPlay || :
 	else
 		randomPlay
 	fi
