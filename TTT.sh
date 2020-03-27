@@ -36,9 +36,9 @@ firstPlay () {
 			player=X
 			flag=player
 		fi
-	fi
 	echo "The comp has choosen "$comp
 	echo "You are "$player
+	fi
 }
 
 checkWinner () {
@@ -125,7 +125,6 @@ checkCorner () {
 		printBoard
 		flag=player
 	else
-		echo  "ASDSADASDSA"
 		arr[${corner[$((RANDOM%length))]}]=$comp
 		remMoves=$((remMoves-1))
 		flag=player
