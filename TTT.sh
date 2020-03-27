@@ -157,8 +157,8 @@ winCheck () {
 play () {
 	if [ "$flag" =  "player" ]
 	then
-		read -p"Enter position" pos
-		if [ "${arr[$((pos-1))]}" = "-" ]
+		read -p"Enter position" pos 
+		if [ "${arr[$((pos-1))]}" = "-" -a $pos -ge 1 -a $pos -le 9 ]
 		then
 	 		arr[$((pos-1))]=$player
 			remMoves=$((remMoves-1))
