@@ -1,0 +1,405 @@
++ read '-pEnter difficulty 1.Easy 2.Hard' difficulty
+Enter difficulty 1.Easy 2.Hard+ flag=0
++ remMoves=9
++ reset
++ echo Welcome to TicTacToe 'Program!'
++ arr=(- - - - - - - - -)
++ firstPlay
++ read '-pEnter 1 or 0 for a toss ' toss
+Enter 1 or 0 for a toss + '[' 0 -eq 1 ']'
++ '[' 0 -eq 1 ']'
++ comp=O
++ '[' O = X ']'
++ player=X
++ flag=player
++ printBoard
++ echo
++ winner=no
++ true
++ '[' 9 -lt 5 ']'
++ '[' 9 -eq 0 ']'
++ play
++ '[' player = player ']'
++ read '-pEnter position' pos
+Enter position+ '[' - = - ']'
++ arr[$((pos-1))]=X
++ remMoves=8
++ printBoard
++ echo
++ flag=comp
++ true
++ '[' 8 -lt 5 ']'
++ '[' 8 -eq 0 ']'
++ play
++ '[' comp = player ']'
++ '[' 1 -eq 2 -a comp = comp ']'
++ randomPlay
++ pos=2
++ '[' - = - ']'
++ arr[$pos]=O
++ remMoves=7
++ flag=player
++ printBoard
++ echo
++ true
++ '[' 7 -lt 5 ']'
++ '[' 7 -eq 0 ']'
++ play
++ '[' player = player ']'
++ read '-pEnter position' pos
+Enter position+ '[' - = - ']'
++ arr[$((pos-1))]=X
++ remMoves=6
++ printBoard
++ echo
++ flag=comp
++ true
++ '[' 6 -lt 5 ']'
++ '[' 6 -eq 0 ']'
++ play
++ '[' comp = player ']'
++ '[' 1 -eq 2 -a comp = comp ']'
++ randomPlay
++ pos=8
++ '[' - = - ']'
++ arr[$pos]=O
++ remMoves=5
++ flag=player
++ printBoard
++ echo
++ true
++ '[' 5 -lt 5 ']'
++ '[' 5 -eq 0 ']'
++ play
++ '[' player = player ']'
++ read '-pEnter position' pos
+Enter position+ '[' - = - ']'
++ arr[$((pos-1))]=X
++ remMoves=4
++ printBoard
++ echo
++ flag=comp
++ true
++ '[' 4 -lt 5 ']'
++ checkWinner 0 1 2
++ index1=0
++ index2=1
++ index3=2
++ '[' X '!=' - ']'
++ '[' X = X -a X = O ']'
++ return 0
++ checkWinner 3 4 5
++ index1=3
++ index2=4
++ index3=5
++ '[' X '!=' - ']'
++ '[' X = - -a - = - ']'
++ return 0
++ checkWinner 6 7 8
++ index1=6
++ index2=7
++ index3=8
++ '[' - '!=' - ']'
++ checkWinner 0 4 8
++ index1=0
++ index2=4
++ index3=8
++ '[' X '!=' - ']'
++ '[' X = - -a - = O ']'
++ return 0
++ checkWinner 2 4 6
++ index1=2
++ index2=4
++ index3=6
++ '[' O '!=' - ']'
++ '[' O = - -a - = - ']'
++ return 0
++ checkWinner 0 3 6
++ index1=0
++ index2=3
++ index3=6
++ '[' X '!=' - ']'
++ '[' X = X -a X = - ']'
++ return 0
++ checkWinner 1 4 7
++ index1=1
++ index2=4
++ index3=7
++ '[' X '!=' - ']'
++ '[' X = - -a - = - ']'
++ return 0
++ checkWinner 2 5 8
++ index1=2
++ index2=5
++ index3=8
++ '[' O '!=' - ']'
++ '[' O = - -a - = O ']'
++ return 0
++ '[' no = Tie ']'
++ '[' no = X -o no = O ']'
++ '[' 4 -eq 0 ']'
++ play
++ '[' comp = player ']'
++ '[' 1 -eq 2 -a comp = comp ']'
++ randomPlay
++ pos=4
++ '[' - = - ']'
++ arr[$pos]=O
++ remMoves=3
++ flag=player
++ printBoard
++ echo
++ true
++ '[' 3 -lt 5 ']'
++ checkWinner 0 1 2
++ index1=0
++ index2=1
++ index3=2
++ '[' X '!=' - ']'
++ '[' X = X -a X = O ']'
++ return 0
++ checkWinner 3 4 5
++ index1=3
++ index2=4
++ index3=5
++ '[' X '!=' - ']'
++ '[' X = O -a O = - ']'
++ return 0
++ checkWinner 6 7 8
++ index1=6
++ index2=7
++ index3=8
++ '[' - '!=' - ']'
++ checkWinner 0 4 8
++ index1=0
++ index2=4
++ index3=8
++ '[' X '!=' - ']'
++ '[' X = O -a O = O ']'
++ return 0
++ checkWinner 2 4 6
++ index1=2
++ index2=4
++ index3=6
++ '[' O '!=' - ']'
++ '[' O = O -a O = - ']'
++ return 0
++ checkWinner 0 3 6
++ index1=0
++ index2=3
++ index3=6
++ '[' X '!=' - ']'
++ '[' X = X -a X = - ']'
++ return 0
++ checkWinner 1 4 7
++ index1=1
++ index2=4
++ index3=7
++ '[' X '!=' - ']'
++ '[' X = O -a O = - ']'
++ return 0
++ checkWinner 2 5 8
++ index1=2
++ index2=5
++ index3=8
++ '[' O '!=' - ']'
++ '[' O = - -a - = O ']'
++ return 0
++ '[' no = Tie ']'
++ '[' no = X -o no = O ']'
++ '[' 3 -eq 0 ']'
++ play
++ '[' player = player ']'
++ read '-pEnter position' pos
+Enter position+ '[' O = - ']'
++ echo 'Please enter any another locaation'
++ printBoard
++ echo
++ play
++ '[' player = player ']'
++ read '-pEnter position' pos
+Enter position+ '[' - = - ']'
++ arr[$((pos-1))]=X
++ remMoves=2
++ printBoard
++ echo
++ flag=comp
++ flag=comp
++ true
++ '[' 2 -lt 5 ']'
++ checkWinner 0 1 2
++ index1=0
++ index2=1
++ index3=2
++ '[' X '!=' - ']'
++ '[' X = X -a X = O ']'
++ return 0
++ checkWinner 3 4 5
++ index1=3
++ index2=4
++ index3=5
++ '[' X '!=' - ']'
++ '[' X = O -a O = - ']'
++ return 0
++ checkWinner 6 7 8
++ index1=6
++ index2=7
++ index3=8
++ '[' - '!=' - ']'
++ checkWinner 0 4 8
++ index1=0
++ index2=4
++ index3=8
++ '[' X '!=' - ']'
++ '[' X = O -a O = O ']'
++ return 0
++ checkWinner 2 4 6
++ index1=2
++ index2=4
++ index3=6
++ '[' O '!=' - ']'
++ '[' O = O -a O = - ']'
++ return 0
++ checkWinner 0 3 6
++ index1=0
++ index2=3
++ index3=6
++ '[' X '!=' - ']'
++ '[' X = X -a X = - ']'
++ return 0
++ checkWinner 1 4 7
++ index1=1
++ index2=4
++ index3=7
++ '[' X '!=' - ']'
++ '[' X = O -a O = X ']'
++ return 0
++ checkWinner 2 5 8
++ index1=2
++ index2=5
++ index3=8
++ '[' O '!=' - ']'
++ '[' O = - -a - = O ']'
++ return 0
++ '[' no = Tie ']'
++ '[' no = X -o no = O ']'
++ '[' 2 -eq 0 ']'
++ play
++ '[' comp = player ']'
++ '[' 1 -eq 2 -a comp = comp ']'
++ randomPlay
++ pos=8
++ '[' O = - ']'
++ randomPlay
++ pos=2
++ '[' O = - ']'
++ randomPlay
++ pos=4
++ '[' O = - ']'
++ randomPlay
++ pos=1
++ '[' X = - ']'
++ randomPlay
++ pos=4
++ '[' O = - ']'
++ randomPlay
++ pos=4
++ '[' O = - ']'
++ randomPlay
++ pos=2
++ '[' O = - ']'
++ randomPlay
++ pos=4
++ '[' O = - ']'
++ randomPlay
++ pos=5
++ '[' - = - ']'
++ arr[$pos]=O
++ remMoves=1
++ flag=player
++ printBoard
++ echo
++ flag=player
++ printBoard
++ echo
++ flag=player
++ printBoard
++ echo
++ flag=player
++ printBoard
++ echo
++ flag=player
++ printBoard
++ echo
++ flag=player
++ printBoard
++ echo
++ flag=player
++ printBoard
++ echo
++ flag=player
++ printBoard
++ echo
++ flag=player
++ printBoard
++ echo
++ true
++ '[' 1 -lt 5 ']'
++ checkWinner 0 1 2
++ index1=0
++ index2=1
++ index3=2
++ '[' X '!=' - ']'
++ '[' X = X -a X = O ']'
++ return 0
++ checkWinner 3 4 5
++ index1=3
++ index2=4
++ index3=5
++ '[' X '!=' - ']'
++ '[' X = O -a O = O ']'
++ return 0
++ checkWinner 6 7 8
++ index1=6
++ index2=7
++ index3=8
++ '[' - '!=' - ']'
++ checkWinner 0 4 8
++ index1=0
++ index2=4
++ index3=8
++ '[' X '!=' - ']'
++ '[' X = O -a O = O ']'
++ return 0
++ checkWinner 2 4 6
++ index1=2
++ index2=4
++ index3=6
++ '[' O '!=' - ']'
++ '[' O = O -a O = - ']'
++ return 0
++ checkWinner 0 3 6
++ index1=0
++ index2=3
++ index3=6
++ '[' X '!=' - ']'
++ '[' X = X -a X = - ']'
++ return 0
++ checkWinner 1 4 7
++ index1=1
++ index2=4
++ index3=7
++ '[' X '!=' - ']'
++ '[' X = O -a O = X ']'
++ return 0
++ checkWinner 2 5 8
++ index1=2
++ index2=5
++ index3=8
++ '[' O '!=' - ']'
++ '[' O = O -a O = O ']'
++ winner=O
++ '[' O = Tie ']'
++ '[' O = X -o O = O ']'
++ echo O Won
++ break
