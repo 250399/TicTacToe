@@ -2,6 +2,7 @@
 
 reset () {
 	echo Welcome to TicTacToe Program!
+	read -p"Enter difficulty 1.Easy 2.Hard" difficulty
 	arr=(- - - - - - - - -)
 }
 
@@ -9,16 +10,23 @@ firstPlay () {
 	read -p"Enter 1 or 0 for a toss " toss
 	if [ $((RANDOM%2)) -eq $toss ]
 	then
-		read -p"Enter X or O" player
+		echo You won the toss
+		read -p"Please choose X or O" player
+		player=${player^^}
 		if [ "$player" = "X" ]
 		then
 			comp=O
 			flag=player 
-		else 
+		elif [ "$player" = "O" ]
+		then
 			comp=X
 			flag=comp
+		else
+			echo invalid choice
+			reset
 		fi
 	else
+		echo You lost the toss
 		[ $((RANDOM%2)) -eq 1 ] && comp=X  || comp=O
 		if [ "$comp" = "X" ]
 		then
@@ -29,6 +37,8 @@ firstPlay () {
 			flag=player
 		fi
 	fi
+	echo "The comp has choosen "$comp
+	echo "You are "$player
 }
 
 checkWinner () {
@@ -126,7 +136,7 @@ checkCorner () {
 
 takeCenter () {
 	[ "$flag" = "player" ] && return || :
-	[ "${arr[4]}" = "-" ] && arr[5]=$comp || :
+	[ "${arr[4]}" = "-" ] && arr[5]=$comp || return
 	remMoves=$((remMoves-1))
 	flag=player
 	printBoard
@@ -169,8 +179,7 @@ play () {
 	else
 		randomPlay
 	fi
-}
-read -p"Enter difficulty 1.Easy 2.Hard" difficulty 
+} 
 flag=0
 remMoves=9
 reset
