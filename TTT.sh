@@ -107,7 +107,7 @@ checkCorner () {
 	length=${#corner[@]}
 	if [ $length -eq 0 ]
 	then
-		return
+		return 0
 	elif [ $length -eq 1 ]
 	then
 		arr[${corner[@]}]=$comp
@@ -121,6 +121,15 @@ checkCorner () {
 		flag=player
 		printBoard
 	fi
+	return 1
+}
+
+takeCenter () {
+	[ "$flag" = "player" ] && return || :
+	[ "${arr[4]}" = "-" ] && arr[5]=$comp || :
+	remMoves=$((remMoves-1))
+	flag=player
+	printBoard
 }
 
 winCheck () {
@@ -155,6 +164,7 @@ play () {
 		winCheck $comp
 		winCheck $player
 		[ "$flag" = "comp" ] && checkCorner || :
+		[ $? -eq 0 ] && takeCenter || : 
 		[ "$flag" = "comp" ] && randomPlay || :
 	else
 		randomPlay
